@@ -15,10 +15,12 @@ to cut you off.
 
 ## Syllabus
 
-The Syllabus is [here](./Syllabus/syllabus.pdf).
+The Syllabus is [here](./Syllabus/syllabus.pdf). Read it.
 
 ## Installation guide
 
+Our programming environment is a Linux ARM distribution. It is required
+on both Windows and Macintosh (even if you have an ARM-based Macintosh).
 The installation guide is found [here](./install.md)
 
 ## My Assembly Language Book
