@@ -2,6 +2,15 @@
 #include <stdio.h>
 #include <time.h>
 
+/*	This is the prototype for the assembly language version. You may
+	have always thought that switch statements are implemented as a long
+	chain of if / else. Well, sometimes they are. Sometimes they are
+	implemented using binary search and still other times they are 
+	implemented as jump tables.
+
+	My assembly language version is found in jmptbl.s.
+*/
+
 int main()
 {
     int r;

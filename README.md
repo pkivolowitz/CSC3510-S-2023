@@ -34,7 +34,7 @@ gets my thanks!
 
 ## Useful Links
 
-[This](https://en.wikipedia.org/wiki/Calling_convention#ARM_(A64)) link
+[This link](https://en.wikipedia.org/wiki/Calling_convention#ARM_(A64))
 is to Wikipedia explaining the ARM 64 Linux calling convention.
 Understanding the calling convention is critical to programming in
 assembly language.
@@ -42,4 +42,16 @@ assembly language.
 Note that calling conventions are platform dependent. The ARM-based Mac,
 for example, uses a different calling convention. Why? Because Apple.
 
-More useful resources are located [here](./reference).
+More useful ARM  resources are located [here](./reference).
+
+Here are more resources I have prepared for you:
+
+| Topic | Link |
+| ----- | ---- |
+| bits | [here](./bits) |
+| floating point | [here](./floating_point) |
+| intro threading | [here](./intro_threading) |
+| jump tables | [here](./jump_table) |
+| registers | [here](./regs) |
+| varargs | [here](./varargs) |
+

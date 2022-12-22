@@ -8,16 +8,20 @@ main:   str     x30, [sp, -16]!
         bl      srand               // call srand setting up rand
         bl      rand                // get a random number
         and     x0, x0, 7           // ensure its range is 0 to 7
-                                    //  note use of x register is on purpose
+                                    // note use of x register is on purpose
         lsl     x0, x0, 2           // multiply by 4
         ldr     x1, =jt             // load base address of jump table
         add     x1, x1, x0          // add offset to base address
         br      x1
 
-// If, as in this case, all the "cases"  have  the same number of instructions then
-// this intermediate jump table can be omitted  saving some space and a tiny amount
-// of time. To omit the intermediate jump table, you'd multiple by 12 above and not
-// 4. Twelve because each "case" has 3 instructions.
+// If, as in this case, all the "cases" have the same number of 
+// instructions then this intermediate jump table can be omitted saving
+// some space and a tiny amount of time. To omit the intermediate jump
+// table, you'd multiply by 12 above and not 4. Twelve because each 
+// "case" has 3 instructions (3 x 4 == 12).
+
+// Question for you: If you did omit the jump table, relative to what
+// would you jump (since "jt" would be gone).
 
 jt:     b       0f
         b       1f
