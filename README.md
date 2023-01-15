@@ -5,20 +5,30 @@ the Schoology main page.
 
 ## Class Meetings
 
-Monday / Wednesday Friday at 1:35 PM to 2:40 PM. We will begin on-time
+Monday / Wednesday / Friday at 1:35 PM to 2:40 PM. We will begin on-time
 and will usually but not always use all of the class period.
 
-**Note** my next class is clear on the other side of the building and I
+**Note my next class is clear on the other side of the building and I
 don't amble to quickly. As a consequence, my ability to engage in
-conversation after class is limited. 
+conversation after class is limited.**
 
-My apologies in advance if I have to cut you off.
+**My apologies in advance if I have to cut you off.**
 
 ## Syllabus
 
 The Syllabus is [here](./Syllabus/syllabus.pdf). Read it.
 
 Note that attendance is a graded component of the course.
+
+### Final Grades
+
+These weightings are subject to change.
+
+| Type | Weight | Comment |
+| ---- | ------ | ------- |
+|Projects / Homework | 80% | Projects and any other forms of homework |
+| Final | 10% | Multiple choice, cumulative |
+| Attendance | 10% | See the actual syllabus |
 
 ## Use of Zoom / Office Hours
 
@@ -36,6 +46,9 @@ As all help sessions are provided via Zoom, nights and weekends are OK
 within reason. Mornings are difficult.
 
 Wednesdays near noon hours are not possible due to campus obligations.
+
+[This is the link to a standing Zoom meeting](). The link hasn't been
+defined yet. 
 
 ## Installation guide
 
@@ -63,8 +76,7 @@ go over this in class and it is also covered in my book.
 Understanding the calling convention is critical to programming in
 assembly language.
 
-Note that calling conventions are platform dependent. The ARM-based Mac,
-for example, uses a different calling convention. Why? Because Apple.
+Note that calling conventions are platform dependent.
 
 More useful ARM  resources are located [here](./reference).
 
@@ -78,3 +90,5 @@ Here are more resources I have prepared for you:
 | jump tables | [here](./jump_table) |
 | registers | [here](./regs) |
 | varargs | [here](./varargs) |
+
+## Projects
