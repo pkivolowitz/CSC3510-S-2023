@@ -90,5 +90,6 @@ Here are more resources I have prepared for you:
 | jump tables | [here](./jump_table) |
 | registers | [here](./regs) |
 | varargs | [here](./varargs) |
+| getopt | [here](https://azrael.digipen.edu/~mmead/www/Courses/CS180/getopt.html) |
 
 ## Projects
