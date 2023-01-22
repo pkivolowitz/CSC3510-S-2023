@@ -154,7 +154,9 @@ and end it with:
 
 * Remember to have a `main` marked as global.
 
-* Remember to `.align`.
+* Remember to `.align`. A more "current" version of this is to use
+  `.p2align`. Use that instead. The argument is the exponent to a power
+  of 2 to which to align. Thus, `.p2align 2` is typical.
 
 * Remember to have a `.text` segment
 
