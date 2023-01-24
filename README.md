@@ -47,8 +47,9 @@ within reason. Mornings are difficult.
 
 Wednesdays near noon hours are not possible due to campus obligations.
 
-[This is the link to a standing Zoom meeting](). The link hasn't been
-defined yet. 
+[This is the link to a standing Zoom
+meeting](https://carthage-edu.zoom.us/j/4456320007?pwd=UmZNa3ZDOTI2NHdhR21sSmxDR21KUT09).
+Use this meeting link for all out-of-class help from me.
 
 ## Installation guide
 
@@ -66,6 +67,22 @@ My book is a work in progress. It is located
 You can earn 1 point of extra credit by finding typos in the book. Only
 the first person to find an error gets the extra credit. Everyone else
 gets my thanks and a mention in the book!
+
+### Book is a Labor of Love
+
+Check this out when you are feeling overwhelmed by homework. As of
+1/24/2023:
+
+```text
+Text (words in .md files)
+   43105 total
+C and C++ (lines)
+     895 total
+Assembly Language (lines)
+    3775 total
+```
+
+**PLEASE** make use of it.
 
 ## Useful Links
 
