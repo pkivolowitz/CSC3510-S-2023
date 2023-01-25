@@ -6,7 +6,8 @@
         "badtail",
         "dbgprnt",
         "noline",
-        "pstring"
+        "pstring",
+        "rint"
     ],
     "files.associations": {
         "chrono": "cpp",
