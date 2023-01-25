@@ -7,5 +7,9 @@
         "dbgprnt",
         "noline",
         "pstring"
-    ]
+    ],
+    "files.associations": {
+        "chrono": "cpp",
+        "variant": "cpp"
+    }
 }
