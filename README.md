@@ -5,11 +5,13 @@ the Schoology main page.
 
 ## Class Meetings
 
-Monday / Wednesday / Friday at 1:35 PM to 2:40 PM. We will begin on-time
-and will usually but not always use all of the class period.
+Monday / Wednesday / Friday at 1:35 PM to 2:40 PM. 
+
+We will begin on-time and will usually but not always use all of the
+class period.
 
 **Note my next class is clear on the other side of the building and I
-don't amble to quickly. As a consequence, my ability to engage in
+don't amble too quickly. As a consequence, my ability to engage in
 conversation after class is limited.**
 
 **My apologies in advance if I have to cut you off.**
@@ -19,6 +21,9 @@ conversation after class is limited.**
 The Syllabus is [here](./Syllabus/syllabus.pdf). Read it.
 
 Note that attendance is a graded component of the course.
+
+Note that should there be any differences between this document and the
+syllabus, this document will rule.
 
 ### Final Grades
 
@@ -45,7 +50,7 @@ invitation!
 As all help sessions are provided via Zoom, nights and weekends are OK
 within reason. Mornings are difficult.
 
-Wednesdays near noon hours are not possible due to campus obligations.
+Wednesdays near noon hours are *not* possible due to campus obligations.
 
 [This is the link to a standing Zoom
 meeting](https://carthage-edu.zoom.us/j/4456320007?pwd=UmZNa3ZDOTI2NHdhR21sSmxDR21KUT09).
@@ -54,19 +59,23 @@ Use this meeting link for all out-of-class help from me.
 ## Installation guide
 
 Our programming environment is a Linux ARM distribution. It is required
-on both Windows and Macintosh (even if you have an ARM-based Macintosh).
+on both Windows and Macintosh (even if you have an ARM-based Macintosh
+or a rare ARM-based Windows machine).
+
 The installation guide is found [here](./install.md).
 
-Note, if you are on an ARM Windows machine, let me know.
+Note, if you are on an ARM Windows machine, let me know. I'd like to
+know how and where you got it. I have the Microsoft ARM Development
+machine, myself.
 
 ## My Assembly Language Book
 
 My book is a work in progress. It is located
 [here](https://github.com/pkivolowitz/asm_book).
 
-You can earn 1 point of extra credit by finding typos in the book. Only
-the first person to find an error gets the extra credit. Everyone else
-gets my thanks and a mention in the book!
+You can earn 2 points of extra credit by finding three or more typos in
+the book. Only the first person to find an error gets the extra credit.
+Everyone else gets my thanks and a mention in the book!
 
 ### Book is a Labor of Love
 
@@ -109,4 +118,20 @@ Here are more resources I have prepared for you:
 | varargs | [here](./varargs) |
 | getopt | [here](https://azrael.digipen.edu/~mmead/www/Courses/CS180/getopt.html) |
 
+Some of these are covered in more detail in the book.
+
 ## Projects
+
+We will get through *at least* six of these however you should plan on
+all eight.
+
+| Project | Content | Purpose |
+| ------- | ------- | ------- |
+| [P1](./projects/p1) | Echo | Warm Up |
+| [P2](./projects/p2) | Sorted Singly Linked List | Memory Management |
+| [P3](./projects/p3) | Tail | Memory Management / Low Level I/O |
+| [P4](./projects/p4) | Computing Sines | Floating Point Instructions |
+| P5 | Not Defined | Jump Tables and Creative Use of Registers |
+| P6 | Not Defined | Interop with C, C++ and maybe Python |
+| P7 | Not Defined | NEON programming |
+| P8 | Not Defined | Implementing Locks |
