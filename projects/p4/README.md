@@ -29,7 +29,7 @@ arguments are therefore required.
   be a double.
 
 * The number of terms to evaluate. The number of terms must lie between
-  1 and 10 inclusive.
+  1 and 8 inclusive.
 
 ## C version
 

@@ -41,7 +41,7 @@ int main(int argc, char ** argv) {
 	double angle = atof(argv[1]);
     int terms = atoi(argv[2]);
 
-    if (terms < 1 || terms > 10) {
+    if (terms < 1 || terms > 8) {
         fprintf(stderr, "Number of terms is out of range.\n");
         return 1;
     }

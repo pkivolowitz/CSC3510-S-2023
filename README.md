@@ -5,7 +5,7 @@ the Schoology main page.
 
 ## Class Meetings
 
-Monday / Wednesday / Friday at 1:35 PM to 2:40 PM. 
+Monday / Wednesday / Friday at 1:35 PM to 2:40 PM.
 
 We will begin on-time and will usually but not always use all of the
 class period.
