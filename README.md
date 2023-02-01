@@ -76,6 +76,13 @@ structures.
 
   * RAID
 
+  * basic combinatorial logic gates
+
+* understand how to build a half-adder from basic combinatorial logic
+  gates.
+
+* understand how to minimize combinatorial logic.
+
 ## Use of Zoom / Office Hours
 
 I do not post office hours even though doing so is a requirement of all
