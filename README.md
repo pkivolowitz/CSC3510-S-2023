@@ -3,6 +3,20 @@
 Bookmark this page. It serves as the main class webpage in addition to
 the Schoology main page.
 
+## Table of Contents
+
+|Content|
+|-------|
+|[Class Meetings](#class-meetings)|
+|[Syllabus](#syllabus)|
+|[Learning Outcomes](#learning-outcomes)|
+|[Office Hours](#use-of-zoom--office-hours)|
+|[Text Book](#my-assembly-language-book)|
+|[Installation](#installation-guide)|
+|[Projects](#projects)|
+|[Final Grades](#final-grades)|
+|[Useful Links](#useful-links)|
+
 ## Class Meetings
 
 Monday / Wednesday / Friday at 1:35 PM to 2:40 PM.
@@ -25,15 +39,42 @@ Note that attendance is a graded component of the course.
 Note that should there be any differences between this document and the
 syllabus, this document will rule.
 
-### Final Grades
+### Learning Outcomes
 
-These weightings are subject to change.
+As a consequence of doing well in this course, you will be able to:
 
-| Type | Weight | Comment |
-| ---- | ------ | ------- |
-|Projects / Homework | 80% | Projects and any other forms of homework |
-| Final | 10% | Multiple choice, cumulative |
-| Attendance | 10% | See the actual syllabus |
+* design and implement programs using AARCH64 ISA general
+purpose instructions.
+
+* design and implement programs using the ARM NEON SIMD instruction set.
+
+* design and implement programs using threading with mutual exclusion
+and / or atomic operations.
+
+* design and implement programs using bit operations and bit related
+structures.
+
+* understand Two's Complement integer representation.
+
+* understand and decompose both single and double precision numbers.
+
+* identify and describe:
+
+  * the CPU including:
+  
+    * registers
+
+    * stack pointer
+
+    * program counter
+
+    * cache
+
+  * busses
+
+  * persistent storage
+
+  * RAID
 
 ## Use of Zoom / Office Hours
 
@@ -93,33 +134,6 @@ Assembly Language (lines)
 
 **PLEASE** make use of it.
 
-## Useful Links
-
-[This link](https://en.wikipedia.org/wiki/Calling_convention#ARM_(A64))
-is to Wikipedia explaining the ARM 64 Linux calling convention. We will
-go over this in class and it is also covered in my book.
-
-Understanding the calling convention is critical to programming in
-assembly language.
-
-Note that calling conventions are platform dependent.
-
-More useful ARM  resources are located [here](./reference).
-
-Here are more resources I have prepared for you:
-
-| Topic | Link |
-| ----- | ---- |
-| bits | [here](./bits) |
-| floating point | [here](./floating_point) |
-| intro threading | [here](./intro_threading) |
-| jump tables | [here](./jump_table) |
-| registers | [here](./regs) |
-| varargs | [here](./varargs) |
-| getopt | [here](https://azrael.digipen.edu/~mmead/www/Courses/CS180/getopt.html) |
-
-Some of these are covered in more detail in the book.
-
 ## Projects
 
 We will get through *at least* six of these however you should plan on
@@ -135,3 +149,42 @@ all eight.
 | P6 | Not Defined | Interop with C, C++ and maybe Python |
 | P7 | Not Defined | NEON programming |
 | P8 | Not Defined | Implementing Locks |
+
+## Final Grades
+
+These weightings are subject to change.
+
+| Type | Weight | Comment |
+| ---- | ------ | ------- |
+|Projects / Homework | 80% | Projects and any other forms of homework |
+| Final | 10% | Multiple choice, cumulative |
+| Attendance | 10% | See the actual syllabus |
+
+## Useful Links
+
+[This link](https://en.wikipedia.org/wiki/Calling_convention#ARM_(A64))
+is to Wikipedia explaining the ARM 64 Linux calling convention. We will
+go over this in class and it is also covered in my book.
+
+Understanding the calling convention is critical to programming in
+assembly language.
+
+Note that calling conventions are platform dependent. For example, the
+Apple Mac OS running on Apple Silicon uses a different calling
+convention. This is covered in my book.
+
+More useful ARM  resources are located [here](./reference).
+
+Other resources I have prepared for you:
+
+| Topic | Link |
+| ----- | ---- |
+| bits | [here](./bits) |
+| floating point | [here](./floating_point) |
+| intro threading | [here](./intro_threading) |
+| jump tables | [here](./jump_table) |
+| registers | [here](./regs) |
+| varargs | [here](./varargs) |
+| getopt | [here](https://azrael.digipen.edu/~mmead/www/Courses/CS180/getopt.html) |
+
+Some of these are covered in more detail in the book.
