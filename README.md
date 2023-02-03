@@ -152,10 +152,11 @@ all eight.
 | [P2](./projects/p2) | Sorted Singly Linked List | Memory Management |
 | [P3](./projects/p3) | Tail | Memory Management / Low Level I/O |
 | [P4](./projects/p4) | Computing Sines | Floating Point Instructions |
-| P5 | Not Defined | Jump Tables and Creative Use of Registers |
-| P6 | Not Defined | Interop with C, C++ and maybe Python |
-| P7 | Not Defined | NEON programming |
-| P8 | Not Defined | Implementing Locks |
+| [P5](./projects/p5) | Directory Entries | Advanced use of Structs |
+| P6 | Not Defined | Jump Tables and Creative Use of Registers |
+| P7 | Not Defined | Interop with C, C++ and maybe Python |
+| P8 | Not Defined | NEON programming |
+| P9 | Not Defined | Implementing Locks |
 
 ## Final Grades
 
