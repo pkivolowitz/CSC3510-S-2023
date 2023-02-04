@@ -181,8 +181,6 @@ Note that calling conventions are platform dependent. For example, the
 Apple Mac OS running on Apple Silicon uses a different calling
 convention. This is covered in my book.
 
-More useful ARM  resources are located [here](./reference).
-
 Other resources I have prepared for you:
 
 | Topic | Link |
