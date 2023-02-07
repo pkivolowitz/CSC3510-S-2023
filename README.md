@@ -1,7 +1,7 @@
 # CSC3510-S-2023
 
 Bookmark this page. It serves as the main class webpage in addition to
-the Schoology main page.
+Schoology.
 
 ## Table of Contents
 
@@ -82,6 +82,12 @@ structures.
   gates.
 
 * understand how to minimize combinatorial logic.
+
+### Assembly Language First
+
+We'll study assembly language first so that you can get started on your
+projects. After we've done a fair amount we can turn to more traditional
+computer organization topics with more assembly language sprinkled in.
 
 ## Use of Zoom / Office Hours
 
