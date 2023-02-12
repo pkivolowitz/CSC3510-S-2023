@@ -107,7 +107,7 @@ within reason. Mornings are difficult.
 Wednesdays near noon hours are *not* possible due to campus obligations.
 
 [This is the link to a standing Zoom
-meeting](https://carthage-edu.zoom.us/j/4456320007?pwd=UmZNa3ZDOTI2NHdhR21sSmxDR21KUT09).
+meeting](https://carthage-edu.zoom.us/j/96177856652).
 Use this meeting link for all out-of-class help from me.
 
 ## Installation guide
