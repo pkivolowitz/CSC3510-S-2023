@@ -249,7 +249,7 @@ ARM='qemu-system-aarch64 -M virt -m 2048 -cpu cortex-a53   -kernel vmlinuz-4.9.0
 Go to
 [here](https://www.mediafire.com/file/gjniz0md5lhhj2a/3510.zip)
 
-1. Download aarch64.zip.
+1. Download 3510.zip.
 2. Choose to `Open with`.
 3. Create the folder where your distro will live.
 4. Drag all the files to that folder.
