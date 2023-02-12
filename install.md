@@ -8,11 +8,11 @@ in ARM AARCH64 assembly language.
 The emulated machines will be command-line only. A good development
 environment would be to edit on your native machine and sftp code down
 to the emulated machine where you run and debug. VS Code has a nice SFTP
-plug-in (search liximomo) that can do this for you every time you save a
-file. 
+plug-in (search SFTP by Natizyskunk) that can do this for you every time
+you save a file.
 
 Additionally, VSCode supports editing via ssh by downloading the *Remote
-Development-SSH* extention (which can be found
+Development-SSH* extension (which can be found
 [here](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)).
 
 The official getting started docs can be found
@@ -55,7 +55,7 @@ should be found.
 
 I have built a working system for us to use directly.
 
-### Getting the distro
+### Getting the Distro
 
 Go to
 [here](https://www.mediafire.com/file/gjniz0md5lhhj2a/3510.zip).
@@ -63,6 +63,10 @@ Go to
 Download 3510.zip.
 
 ### Unzipping the distro
+
+The Mac can unzip automatically by double clicking on the zip file. Some
+browsers support this internally. If you unzip in this way, you can skip
+the following steps...
 
 1. Create the folder you wish to use for the distro.
 2. Change directory into that directory.
@@ -74,8 +78,8 @@ Here is a sample:
 ```text
 [Donnager] /tmp $ mkdir aarch64
 [Donnager] /tmp $ cd aarch64
-[Donnager] /tmp/aarch64 $ unzip ~/Downloads/aarch64.zip
-Archive:  /Users/perrykivolowitz/Downloads/aarch64.zip
+[Donnager] /tmp/aarch64 $ unzip ~/Downloads/3510.zip
+Archive:  /Users/perrykivolowitz/Downloads/3510.zip
   inflating: hda.qcow2
   inflating: initrd.img-4.9.0-8-arm64
   inflating: vmlinuz-4.9.0-8-arm64
@@ -131,6 +135,8 @@ Run:
 ARM
 ```
 
+when *in* the directory where you have unzipped the distro.
+
 Exit the distro by entering `root` as the user and `a` as the password.
 When the shell prompt is shown, type `shutdown now`. Always do this to
 exit the distro.
@@ -157,10 +163,10 @@ old Add Remove Programs -> Windows Features settings.
 5. On the left of the new dialog click `Turn Windows features on or
    off`.
 6. Scroll down to `Windows Subsystem for Linux`.
-7. Ensure this is checked. If it is not, checking it will enbable WSL.
+7. Ensure this is checked. If it is not, checking it will enable WSL.
 8. Hit OK and close settings related windows.
 
-There is a tiny change your computer BIOS might need to enable
+There is a tiny chance your computer BIOS might need to enable
 Virtualization Technology. You won't find out until much later. Modern
 machine need this less and less.
 
@@ -170,21 +176,25 @@ From a command prompt type
 
 ```wsl --install -d Ubuntu```
 
-Follow the rest of the prompts and you'll have a brand spanken new
+Follow the rest of the prompts and you'll have a brand spanking new
 Ubuntu Jammy.
 
 ### Install QEMU
 
+Once in Ubuntu / WSL:
+
 1. `sudo -i`
 2. Enter password.
 3. `apt update` If this is your first time, there may be hundreds of
-   packages to grade. Don't. Rather do it at home. See below.
+   packages to upgrade. Don't. Rather do it at home. See below.
 4. `apt install qemu-system`
 5. Enter
 6. Wait
 7. `exit` This will leave the super user shell.
 
-QEMU is now installed - **at home**, this is how you would update the
+QEMU is now installed.
+
+Once you are **at home**, this is how you would update the
 rest of WSL:
 
 1. `sudo -i`
@@ -194,8 +204,8 @@ rest of WSL:
 
 ### Adding a QEMU alias (Windows)
 
-Edit the file that your terminal runs at launch. This will be
-`~/.bashrc`.
+In Ubuntu / WSL, edit the file that your terminal runs at launch. This
+will be `~/.bashrc`.
 
 Add this line to the bottom of the file.
 
@@ -203,10 +213,12 @@ Add this line to the bottom of the file.
 alias ARM='qemu-system-aarch64 -M virt -m 2048 -cpu cortex-a53 -kernel vmlinuz-4.9.0-8-arm64 -initrd initrd.img-4.9.0-8-arm64 -append root=/dev/vda2 -drive if=none,file=hda.qcow2,format=qcow2,id=hd   -device virtio-blk-pci,drive=hd  -netdev user,id=mynet,hostfwd=tcp::2222-:22 -device virtio-net-pci,netdev=mynet -nographic -smp 2'
 ```
 
-Save the file and exit. How? vi, of course.
+Save the file and exit.
+
+How? vi, of course.
 
 0. Copy the above line into your copy / paste buffer.
-1. `cd`
+1. Inside Ubuntu: `cd`
 2. `vi .bashrc`
 3. `G`
 4. `A<enter>`
@@ -278,11 +290,10 @@ exit the distro.
 
 ## BOTH PLATFORMS - NEVER USE THE `CONSOLE` WINDOW
 
-Once you have launched the virtual machine, `ssh` into it. 
+Once you have launched the virtual machine, `ssh` into it.
 
 ```text
 ssh user@localhost -p 2222
 ```
 
 Don't use the console directly.
-

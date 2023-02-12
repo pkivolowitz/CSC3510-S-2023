@@ -5,9 +5,15 @@
         "badopen",
         "badtail",
         "dbgprnt",
+        "hostfwd",
+        "mynet",
+        "netdev",
+        "nographic",
         "noline",
         "pstring",
-        "rint"
+        "rint",
+        "virt",
+        "virtio"
     ],
     "files.associations": {
         "chrono": "cpp",
