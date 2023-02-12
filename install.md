@@ -60,7 +60,7 @@ I have built a working system for us to use directly.
 Go to
 [here](https://www.mediafire.com/file/gjniz0md5lhhj2a/3510.zip).
 
-Download aarch64.zip.
+Download 3510.zip.
 
 ### Unzipping the distro
 
