@@ -6,17 +6,17 @@ aspects of this project are:
 
 1. Using C and C++ structs in assembly language.
 2. Perfecting memory management discipline (hint: your program will be
-   subjected to valgrind).
+   subjected to valgrind on Linux and Leaks on the Mac).
 
 You know how to do this. You've done it before if you have taken Data
 Structures and Algorithms. In fact, you might consider implementing this
 program in C *first*.
 
-## All behavior and output must match spec exactly
+## All behavior and output should closely follow this specification
 
 Do not vary the messages. Do not be creative with your wording. You
-must, letter-for-letter, match my output. In fact, here is my text for
-you to use:
+should try to match my output letter-for-letter. In fact, here is my
+text for you to use:
 
 ```text
 head_address:	.asciz	"head points to: %x\n"
@@ -26,11 +26,13 @@ bad_malloc:		.asciz	"malloc() failed\n"
 
 ### IMPORTANT
 
-Modern Linux systems have Address Space Randomization enabled by
+~~Modern Linux systems have Address Space Randomization enabled by
 default. This is a security mechanism whereby the layout in memory of an
 application is randomized. Without the following step, your output will
 NOT match mine because the addresses returned by your `malloc()` will
-not match mine due to randomization.
+not match mine due to randomization.~~
+
+Ignore this text:
 
 ```text
 $ su
@@ -39,9 +41,9 @@ $ su
 # exit
 ```
 
-This must be done just once for the lifetime of the course. If you want
+~~This must be done just once for the lifetime of the course. If you want
 to reenable Address Space Randomization, change the 0 to 2 in the above
-steps.
+steps.~~
 
 ## The node
 
@@ -53,8 +55,12 @@ struct Node
 };
 ```
 
-Notice the payload is an `unsigned int`. No negative number will ever
-make it into the linked list. Encountering a negative number amongst the
+Notice the payload is an `unsigned int`.
+
+*No negative number will ever
+make it into the linked list.*
+
+Encountering a negative number amongst the
 command line arguments triggers deletion. Positive numbers cause
 insertion. See below.
 
@@ -105,7 +111,7 @@ Notice the address for the node containing 40 is also the smallest of
 the node addresses. This makes sense since it was the first node
 inserted.
 
-## `valgrind`
+## `valgrind` for Linux
 
 `valgrind` must produce NO errors. This listing shows another sample
 output showing that **All heap blocks were freed -- no leaks are
@@ -135,6 +141,29 @@ I believe I already installed `valgrind` in the VM for you. If I did not
 you can install it yourself.
 
 `sudo apt install valgrind`
+
+## `leaks` for Macintosh
+
+If you are programming directly on the Apple Silicon processor, `valgrind`
+will not be accessible. Instead use
+[`leaks`](https://computerscience.chemeketa.edu/guides/valgrind/leaks/).
+
+`leaks --atExit -- ./a.out`
+
+A lot of stuff is printed with leak information appearing at the end.
+
+## `printf` is hard on Apple Silicon
+
+Variadic functions like `printf` are handled quite differently by Mac OS
+compared to Linux. You will be printing some fancy things:
+
+`"node at %8x contains payload: %lu next: %8x\n"`
+
+Notice there are three slots for data. Once you have correctly set this
+up as if it were Linux (i.e. all in registers), then add the code to
+shift the data onto the stack from right to left.
+
+This can be hard to get right. Fortunately, all these are long values.
 
 ## Work rules
 
@@ -226,4 +255,4 @@ node at aaabc2a0 contains payload: 20 next:        0
 user@comporg:~/p2$ 
 ```
 
-You should also `valgrind` each of these.
+You should also `valgrind` or `leaked` each of these.
