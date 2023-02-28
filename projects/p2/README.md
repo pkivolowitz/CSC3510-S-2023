@@ -20,11 +20,13 @@ text for you to use:
 
 ```text
 head_address:	.asciz	"head points to: %x\n"
-node_info:		.asciz	"node at %8x contains payload: %lu next: %8x\n"
+node_info:		.asciz	"node at 0x%8x contains payload: %lu next: 0x%8x\n"
 bad_malloc:		.asciz	"malloc() failed\n"
 ```
 
 ### IMPORTANT
+
+The following is deprecated. Ignore it.
 
 ~~Modern Linux systems have Address Space Randomization enabled by
 default. This is a security mechanism whereby the layout in memory of an
@@ -32,7 +34,7 @@ application is randomized. Without the following step, your output will
 NOT match mine because the addresses returned by your `malloc()` will
 not match mine due to randomization.~~
 
-Ignore this text:
+The following is deprecated. Ignore it.
 
 ```text
 $ su
@@ -40,6 +42,8 @@ $ su
 # echo 0 > /proc/sys/kernel/randomize_va_space
 # exit
 ```
+
+The following is deprecated. Ignore it.
 
 ~~This must be done just once for the lifetime of the course. If you want
 to reenable Address Space Randomization, change the 0 to 2 in the above
@@ -57,12 +61,10 @@ struct Node
 
 Notice the payload is an `unsigned int`.
 
-*No negative number will ever
-make it into the linked list.*
+*No negative number will ever make it into the linked list.*
 
-Encountering a negative number amongst the
-command line arguments triggers deletion. Positive numbers cause
-insertion. See below.
+Encountering a negative number amongst the command line arguments
+triggers deletion. Positive numbers cause insertion. See below.
 
 *You are strongly encouraged to test any assumptions about how the above
 struct is layed out in memory. It would really suck to be dead in the
@@ -144,26 +146,46 @@ you can install it yourself.
 
 ## `leaks` for Macintosh
 
-If you are programming directly on the Apple Silicon processor, `valgrind`
-will not be accessible. Instead use
+If you are programming directly on the Apple Silicon processor,
+`valgrind` will not be accessible. Instead use
 [`leaks`](https://computerscience.chemeketa.edu/guides/valgrind/leaks/).
 
 `leaks --atExit -- ./a.out`
 
-A lot of stuff is printed with leak information appearing at the end.
+A lot of stuff is printed with leak information appearing at the end. The
+very last line should look like:
+
+`Process _____: 0 leaks for 0 total leaked bytes.`
+
+where a process number replaces the underscores.
 
 ## `printf` is hard on Apple Silicon
 
 Variadic functions like `printf` are handled quite differently by Mac OS
 compared to Linux. You will be printing some fancy things:
 
-`"node at %8x contains payload: %lu next: %8x\n"`
+`"node at 0x%8x contains payload: %lu next: 0x%8x\n"`
 
 Notice there are three slots for data. Once you have correctly set this
 up as if it were Linux (i.e. all in registers), then add the code to
 shift the data onto the stack from right to left.
 
-This can be hard to get right. Fortunately, all these are long values.
+This can be hard to get right so I will provide a working example:
+
+```text
+#if defined(__APPLE__)
+        PUSH_R      x3
+        PUSH_P      x1, x2
+		CRT	        printf
+        add         sp, sp, 32
+#else
+        bl          printf
+#endif
+```
+
+Previous to this code, I set things up the way Linux would expect. Then
+from right to left go `x3` along with a non-existent partner, then `x1`
+and `x2` in that order.
 
 ## Work rules
 
