@@ -1,0 +1,11 @@
+{
+    "cSpell.ignoreWords": [
+        "TAILLEN",
+        "badalloc",
+        "badopen",
+        "badtail",
+        "dbgprnt",
+        "noline",
+        "pstring"
+    ]
+}
