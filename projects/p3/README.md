@@ -16,8 +16,7 @@ The point of this project is to:
 ## Fixed algorithm and data structures
 
 Because I am testing specific skills, **you cannot choose your data
-structure or the high level algorithm (i.e. sorted singly linked
-list)**.
+structure or the high level algorithm.**.
 
 ### Fixed (maximum) number of lines to be printed
 
