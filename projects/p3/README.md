@@ -13,6 +13,9 @@ The point of this project is to:
 
 * use the lowest level file I/O routines.
 
+* learn usage of a fundamental data structure in Computer Science, the
+
+
 ## Fixed algorithm and data structures
 
 Because I am testing specific skills, **you cannot choose your data
@@ -38,7 +41,8 @@ There is a `getline()` but you may **not** use it.
 
 Rather, you must write it yourself. To do so, you will allocate (and at
 the end, free) a fixed temporary buffer of 4096 bytes. Then, read one
-character at a time into the buffer until you find a newline.
+character at a time into the buffer until you find a newline. You already
+have experience using `read()`. 
 
 Once you've found a newline, add a null terminator. You have completed a
 line which is now ready to transfer into your circular buffer (see
