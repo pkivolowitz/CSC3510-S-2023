@@ -206,6 +206,13 @@ head points to: 0
 ```
 
 ```text
+user@comporg:~/p2$ # test for dereferencing a null pointer in delete
+user@comporg:~/p2$ # thank you to J. Wheeler / Spring 2023.
+user@comporg:~/p2$ ./a.out -10
+head points to: 0
+```
+
+```text
 user@comporg:~/p2$ # single insertion
 user@comporg:~/p2$ ./a.out 10
 head points to: aaabc260
