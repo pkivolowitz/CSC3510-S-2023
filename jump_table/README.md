@@ -19,7 +19,8 @@ It's very creative.
 
 Let's expand on Duff's Device.
 
-wedwedwed
+The full source code for this example can be found
+[here](./branch_table.S).
 
 ### Performing Multiple Instructions
 
