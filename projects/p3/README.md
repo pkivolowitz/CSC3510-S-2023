@@ -13,13 +13,15 @@ The point of this project is to:
 
 * use the lowest level file I/O routines.
 
+* learn usage of a fundamental data structure in Computer Science, the
+circular (or ring) buffer.
+
 ## Fixed algorithm and data structures
 
 Because I am testing specific skills, **you cannot choose your data
-structure or the high level algorithm (i.e. sorted singly linked
-list)**.
+structure or the high level algorithm.**.
 
-### Fixed (maximum) number of lines to be printed
+## Fixed (maximum) number of lines to be printed
 
 The real `tail` program allows you to select the number of lines to be
 printed. In this program, use a fixed constant of 10. Use the following
@@ -33,23 +35,31 @@ printed.
 Certainly, if the file is shorter than `TAILLEN` lines, you'll print
 less.
 
-### Reading one line at a time
+## Reading one line at a time
 
 There is a `getline()` but you may **not** use it.
 
 Rather, you must write it yourself. To do so, you will allocate (and at
 the end, free) a fixed temporary buffer of 4096 bytes. Then, read one
-character at a time into the buffer until you find a newline.
+character at a time into the buffer until you find a newline. You already
+have experience using `read()`. You'll use this again.
+
+In the first project, you read 1 character at a time into a buffer just
+large enough to hold the character (actually a few but ignore that). In
+this project, you will be reading into successive bytes of a larger
+buffer. This is easy to do...
 
 Once you've found a newline, add a null terminator. You have completed a
 line which is now ready to transfer into your circular buffer (see
 below).
 
-If you reach 4094 bytes (ensuring there is space available for a newline
-followed by a null terminator) without reading a newline, truncate the
-line and ignore any remaining characters in the file until a newline is
-found. Remember to finalize your temporary buffer with a newline and
-null terminator.
+If you reach **4094** bytes (ensuring there is space available for a
+newline followed by a null terminator) without reading a newline,
+truncate the line and ignore any remaining characters in the file until
+a newline is found.
+
+Remember to finalize your temporary buffer with a newline and null
+terminator.
 
 Recap: In all cases, your temporary buffer should end in a newline then
 a null terminator. If the line you're reading is too long, ignore any
@@ -59,10 +69,28 @@ With a completed and finalized line in your temporary buffer, you'll
 dynamically allocate a buffer pointed to by your circular buffer. See
 next.
 
+## Circular buffer
+
+A circle has no end. A circular buffer is ideal when you have to pass
+an effectively infinite amount of data through a finite buffer. The
+circular buffer is a fundamental data structure in Computer Science.
+
+[Wikipeda has a nice article on circular
+buffers](https://en.wikipedia.org/wiki/Circular_buffer). Your circular
+buffer will be `TAILLEN` `char *`. That is, the buffer is an array of
+`TAILLEN` pointers to complete lines terminated with new lines and null
+bytes. Each `char` pointer begins as null. Then, the pointers are filled
+in until you've filled the buffer... then keep right on going circling
+back to the beginning. However, before reusing a slot in the buffer you
+must free what the slots previously pointed to.
+
+At the end of the program, all non-null entries in the buffer must be
+freed.
+
 ### Storing lines
 
 Each line you read will be of a different length. You are to dynamically
-allocate a perfectly sized buffer to hold the finalized line and put a
+allocate a *perfectly* sized buffer to hold the finalized line and put a
 pointer to this buffer in your circular buffer.
 
 Again, you may assume that no line of input will be larger than 4K - 2
@@ -108,8 +136,6 @@ Registers preserved:
 ```
 
 ## Required error messages
-
-The following will be checked. They must appear letter for letter.
 
 ```text
 usage:		.asciz	"File name must be given."
@@ -232,11 +258,15 @@ at the beginning of the line):
 ==21779== All heap blocks were freed -- no leaks are possible
 ```
 
+On the Mac, `leaks` will be used for your testing.
+
 ## Partner rules
 
-You may work with a SPECIFIC partner, assigned by me in an email. Or you
-can work solo.
+You can work solo or with a partner.
 
 ## What to hand in
 
-Just the assembly language program.
+Only one partner should submit code. The code must including the names
+of the partners (if working as a partnership). The partner who is NOT
+handing in code must submit a text file containing the name of the
+person submitting the code on behalf of your partnership.
