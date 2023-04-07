@@ -31,8 +31,8 @@ arguments are therefore required.
   be a double.
 
 * The number of terms to evaluate. The number of terms must lie between
-  1 and 10 inclusive. Note the value of 10 as an upper bound in new. It
-  was 8.
+  1 and 10 inclusive. Note the value of 10 as an upper bound is new. It
+  was 8 in the original specification.
 
 ## C version
 
@@ -71,15 +71,15 @@ pk_taylor_series >
 
 These are the floating point instructions I used in my implementation.
 
-* fmov
+* `fmov`
 
-* scvtf
+* `scvtf`
 
-* fmul
+* `fmul`
 
-* fdiv
+* `fdiv`
 
-* fadd
+* `fadd`
 
 ## How I broke up the program
 
@@ -87,7 +87,7 @@ I have functions named:
 
 * main
 
-* HandleOptions
+* HandleOptions - gets, parses and checks the command line
 
 * Factorial
 
@@ -101,6 +101,48 @@ I have functions named:
 
 * D2R - Degrees to radians
 
+## Sad story
+
+In writing the assembly language version of this project, I decided to
+check my intermediate answers with ChatGPT. It was easy enough to frame
+the request and I did so in many ways **getting a different wrong answer
+every time**. I wasted **hours** looking for a bug in my code ultimately
+to discover ChatGPT's lies and deceit.
+
+For example, here are some gems:
+
+Three minus four is about zero...
+
+```text
+~ 3.14159 - (3.14159^3 / 3!)
+~ 3.14159 - 4.9348
+~ -0.0005
+```
+
+or this (ChatGPT even generated this code):
+
+```c++
+# include <stdio.h>
+# include <math.h>
+int main() {
+    const double pi = 3.14159265358979323846;
+    double result = pi *(1 - pi*pi / 6.0);
+    printf("%f\n", result);
+    return 0;
+}
+```
+
+This is a hard coded version of a 2 term Taylor Series evaluation of
+180 degrees (PI radians).
+
+And Chat's answer: 2.958040
+
+The correct answer is: -2.026120.
+
+Bottom line: ChatGPT lies as much as a politician.
+
+ChatGPT for President!
+
 ## CSC3510
 
 The following applies to Carthage College CSC3510 students.
@@ -112,3 +154,10 @@ Work is to be done solo.
 ### What to hand in
 
 Just the .S file. **Your name must be at the top of the file.**
+
+## Setting expectations
+
+With extensive commenting, my solution is about 250 lines. This is not a
+challenge, rather a figure by which to set expectations. Should you find
+you're writing a thousand lines, for example, you're doing something
+wrong.
