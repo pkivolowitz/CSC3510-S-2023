@@ -106,10 +106,6 @@ within reason. Mornings are difficult.
 
 Wednesdays near noon hours are *not* possible due to campus obligations.
 
-[This is the link to a standing Zoom
-meeting](https://carthage-edu.zoom.us/j/96177856652).
-Use this meeting link for all out-of-class help from me.
-
 ## Installation guide
 
 Our programming environment is a Linux ARM distribution. It is required
