@@ -19,18 +19,19 @@ const int LOOPS = 1 << 5;
 timeval Test1() {
 
 	timeval start, end, elapsed;
-    volatile unsigned short * buffer;
+     unsigned short * buffer;
     buffer = (unsigned short *) malloc(ARRAY_SIZE * sizeof(short));
     assert(buffer);
 	gettimeofday(&start, NULL);
 	for (int i = 0; i < LOOPS; i++) {
-        volatile unsigned short accumulator;
-        volatile unsigned short * end = buffer + ARRAY_SIZE;
-        volatile unsigned short * ptr = buffer;
+         unsigned short accumulator;
+         unsigned short * end = buffer + ARRAY_SIZE;
+         unsigned short * ptr = buffer;
         while (ptr < end) {
-			volatile int waster = rand() % ARRAY_SIZE;
+			 int waster = rand() % ARRAY_SIZE;
 			accumulator += *(ptr++);
-            //__builtin_prefetch((const void *) (ptr + 32), 0, 0);
+            __builtin_prefetch((const void *) (ptr + 16), 0, 1);
+            // prfm
 		}
 	}
 	gettimeofday(&end, NULL);
@@ -79,3 +80,11 @@ int main() {
 	PrintElapsedTime("Random access:", et);
 	return 0;
 }
+
+
+/*
+    volatile char * keyboard = an_address;
+    for (i = 0; i < 1000; i++) {
+        c = *keyboard;
+    }
+*/
