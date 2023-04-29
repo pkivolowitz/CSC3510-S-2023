@@ -6,6 +6,7 @@
 #include <memory.h>
 #include <sys/time.h>
 #include <string>
+#include <arm_neon.h>
 
 using std::cout;
 using std::string;
@@ -16,18 +17,21 @@ const int LOOPS = 1 << 5;
 /* Test1() timing a sequential march through a large array.
 */
 timeval Test1() {
+
 	timeval start, end, elapsed;
-    volatile unsigned long * buffer;
-    buffer = (unsigned long *) malloc(ARRAY_SIZE * sizeof(long));
+     unsigned short * buffer;
+    buffer = (unsigned short *) malloc(ARRAY_SIZE * sizeof(short));
     assert(buffer);
 	gettimeofday(&start, NULL);
 	for (int i = 0; i < LOOPS; i++) {
-        volatile unsigned long accumulator;
-        volatile unsigned long * end = buffer + ARRAY_SIZE;
-        volatile unsigned long * ptr = buffer;
+         unsigned short accumulator;
+         unsigned short * end = buffer + ARRAY_SIZE;
+         unsigned short * ptr = buffer;
         while (ptr < end) {
-			volatile int waster = rand() % ARRAY_SIZE;
+			 int waster = rand() % ARRAY_SIZE;
 			accumulator += *(ptr++);
+            __builtin_prefetch((const void *) (ptr + 16), 0, 1);
+            // prfm
 		}
 	}
 	gettimeofday(&end, NULL);
@@ -40,14 +44,14 @@ timeval Test1() {
  */
 timeval Test2() {
 	timeval start, end, elapsed;
-	volatile unsigned long *buffer;
-	buffer = (unsigned long *)malloc(ARRAY_SIZE * sizeof(long));
+	volatile unsigned short *buffer;
+	buffer = (unsigned short *)malloc(ARRAY_SIZE * sizeof(short));
 	assert(buffer);
 	gettimeofday(&start, NULL);
 	for (int i = 0; i < LOOPS; i++) {
-		volatile unsigned long accumulator;
-		volatile unsigned long *end = buffer + ARRAY_SIZE;
-		volatile unsigned long *ptr = buffer;
+		volatile unsigned short accumulator;
+		volatile unsigned short *end = buffer + ARRAY_SIZE;
+		volatile unsigned short *ptr = buffer;
 		while (ptr < end) {
             volatile int index = rand() % ARRAY_SIZE;
 			accumulator += *(buffer + index);
@@ -76,3 +80,11 @@ int main() {
 	PrintElapsedTime("Random access:", et);
 	return 0;
 }
+
+
+/*
+    volatile char * keyboard = an_address;
+    for (i = 0; i < 1000; i++) {
+        c = *keyboard;
+    }
+*/
