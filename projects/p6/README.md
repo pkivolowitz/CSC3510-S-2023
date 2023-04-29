@@ -303,15 +303,10 @@ demo code include:
 ### Loop unrolling
 
 Unroll at most 8 times. This is not an arbitrary value, though not the
-only good number of times.
+only "good" value.
 
-Every AARCH64 instruction is 32 bits in length. A single cache line in
-the AARCH64 is 128 bits. This means 16 instructions fit in just 4 cache
-lines meaning your main loop(s) will fit in just 5 cache lines - a very
-small number so likely to stay in the cache for as long as your process
-is on the CPU.
-
-This entire subsection is one giant hint.
+You will want to do the majority of your work in a specially crafted
+loop. Take this and the mention of the Duff Device below as a hint.
 
 ### Fetching / storing various widths
 
@@ -332,11 +327,11 @@ This entire subsection is one giant hint.
 
 ### The Duff Device
 
-This entire subsection is one giant hint. Explaining this code is up to
+This entire subsection is a giant hint. Explaining this code is up to
 you but there *is* a Wikipedia article on this.
 
 Further, we have studied jump tables earlier in this class. You must
-dust off that knowledge.
+dust off that knowledge to go as fast as possible.
 
 ```c
 /* The original Duff Device - THIS IS NOT CODE FOR YOUR PROJECT */
@@ -467,3 +462,16 @@ Correct copy:  true
 ## Summary
 
 There are a lot of giant hints in this document.
+
+## Boomer Rant
+
+It is so very disappointing to me to see code copied wholesale from my
+tutorials and example directly into your projects. **COPY / PASTE is not
+an acceptable substitute for learning.**
+
+If my overly dramatic contention that "Software Kills" is true,
+the "copy / paste from Stack Overflow" generation is going to cause
+havoc.
+
+You are supposed to **learn** from examples, **not parrot them**.
+
