@@ -474,4 +474,3 @@ the "copy / paste from Stack Overflow" generation is going to cause
 havoc.
 
 You are supposed to **learn** from examples, **not parrot them**.
-
