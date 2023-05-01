@@ -4,7 +4,7 @@ There is a substantial DEMO here as well as a project to write.
 
 **READ** this specification.
 
-**READ** the DEMO. The DEMO is just a demo. 
+**READ** the DEMO. The DEMO is just a demo.
 
 Do not include it in your project.
 
@@ -20,7 +20,7 @@ Please advise me of typos / missing words in the specification.
 
 `memcpy(* destination, * source, size)` - sounds simple right?
 
-Before you go onto the actual project, let's learning from a demo
+Before you go onto the actual project, let's learn from a demo
 program.
 
 This [program](./demo.cpp) presents 6 implementations of memcpy-like
@@ -165,7 +165,7 @@ Answer: If the number of bytes to transfer (the amount of work) is made
 smaller, the relative impact of the thread overhead is made larger - so
 the multithreaded version will be slower at some point.
 
-### A look at the code 
+### A look at the code
 
 You are encouraged to look at the read [code](./demo.cpp) but here are
 snippets.
@@ -394,7 +394,7 @@ need an implementation for the assembly language you write.
 | ------ | -------- | ------- |
 | i | N | Sets the number of iterations to perform to N |
 | l | N | Sets the number of bytes to copy to N |
-| L | N | Sets the number of bytes to copy to 2^^N |
+| L | N | Sets the number of bytes to copy to 2^N |
 
 ### Expectation of the number of lines of code in your solution
 
