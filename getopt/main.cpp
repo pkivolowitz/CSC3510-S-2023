@@ -61,6 +61,7 @@ int main(int argc, char * argv[]) {
 */
 void PrintUsage() {
 	cerr << "Usage:" << endl;
+    cerr << "-h              prints this help and exits\n";
 	cerr << "-s string       this is required." << endl;
 	cerr << "-i integer      optional - an integer" << endl;
 	cerr << "-b              optional - if present a boolean is set to true" << endl;
@@ -103,7 +104,7 @@ bool HandleOptions(int argc, char ** argv, int & an_int,
 		you make use of optarg when a command line option does NOT have
 		an argument.
 	*/
-	while ((c = getopt(argc, argv, "hf:i:bc:s:")) != -1) {
+	while ((c = getopt(argc, argv, "bhf:i:c:s:")) != -1) {
 		switch (c) {
 			default:
 			case 'h':

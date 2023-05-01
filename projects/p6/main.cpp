@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <iomanip>
+#include <cassert>
 
 using namespace std;
 using namespace std::chrono;
@@ -10,7 +11,7 @@ using namespace std::chrono;
 typedef duration<double> DURATION;
 
 const int bits_to_shift = 16;
-int length = 1 << bits_to_shift;
+size_t length = 1 << bits_to_shift;
 int iterations = 4;
 
 extern "C" void MEMCPY(u_int8_t *, u_int8_t *, size_t);
@@ -72,11 +73,33 @@ bool Compare(u_char * d, u_char * s, int length) {
 
 int main(int argc, char **argv) {
 	double d;
+    size_t temp_length;
 	const double GB = 1 << 30;
 
 	HandleOptions(argc, argv);
-	u_int8_t * src = (u_char *) aligned_alloc(16, (length < 16) ? 16 : length);
-	u_int8_t * dst = (u_char *) aligned_alloc(16, (length < 16) ? 16 : length);
+
+    /*  aligned_alloc does not arbitrary lengths - ensure that the
+        buffer is at least as large as length, rounding UP to the
+        next higher multiple of 16, if needed. Note that the length
+        remains the length - only the buffer size is potentially
+        altered.
+    */
+
+    temp_length = length;
+    if (temp_length % 16 != 0)
+        temp_length = (temp_length / 16 + 1) * 16;
+
+	u_int8_t * src = (u_char *) 
+        aligned_alloc(16, (temp_length < 16) ? 16 : temp_length);
+	u_int8_t * dst = (u_char *) 
+        aligned_alloc(16, (temp_length < 16) ? 16 : temp_length);
+
+    /* Crash if either aligned_alloc fails.
+    */
+   
+    assert(src);
+    assert(dst);
+
 	InitializeSource(src, length);
 	high_resolution_clock::time_point start_time, end_time;
 

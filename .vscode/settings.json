@@ -4,7 +4,9 @@
         "badalloc",
         "badopen",
         "badtail",
+        "betterer",
         "dbgprnt",
+        "fantabulistic",
         "hostfwd",
         "mynet",
         "netdev",
@@ -12,11 +14,17 @@
         "noline",
         "pstring",
         "rint",
+        "szll",
         "virt",
         "virtio"
     ],
     "files.associations": {
         "chrono": "cpp",
-        "variant": "cpp"
-    }
+        "variant": "cpp",
+        "vector": "cpp"
+    },
+    "cSpell.words": [
+        "dbuffer",
+        "sbuffer"
+    ]
 }
